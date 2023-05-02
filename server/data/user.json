@@ -1,0 +1,16 @@
+[
+    {
+        "username": "Raisa",
+        "fullname": "Raisa Andriana",
+        "email": "raisa@mail.com",
+        "password": "123456",
+        "role": "User"
+    },
+    {
+        "username": "Vidi",
+        "fullname": "Vidi Aldiano",
+        "email": "Vidi@mail.com",
+        "password": "123456",
+        "role" : "User"
+    }
+]
