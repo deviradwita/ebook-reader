@@ -67,18 +67,13 @@ class Controller {
 
   static async addFile(req, res, next) {
     try {
-      console.log("masuuk");
-      console.log(req.file," ????????????????");
-      console.log(req.body, "title=====");
-      // if (!req.file) {
-      //   console.log("No file received");
-      //   throw { code: 400, message: "No file received" };
-      // }
-      
-
-      
-
-      let link = await ImageCloud(req.body);
+     
+      if (!req.file) {
+        console.log("No file received");
+        throw { code: 400, message: "No file received" };
+      }
+   
+      let link = await ImageCloud(req.file);
       let document = link.url;
 
       const newFile = await File.create({
@@ -96,10 +91,12 @@ class Controller {
 
   static async fetchAllFiles(req, res, next) {
     try {
+   
       const allFile = await File.findAll({
         where: {
           UserId: req.user.id,
         },
+        order: [["createdAt", "DESC"]],
       });
 
       if (!allFile) {

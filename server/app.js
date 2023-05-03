@@ -9,18 +9,19 @@ const errorHandler = require("./middleware/errorHandler");
 const Controller = require("./controllers/controller");
 const authentication = require("./middleware/authentication")
 const upload = require("./middleware/multer");
-
+const bodyParser = require('body-parser');
 
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 
 
 app.post("/login", Controller.login)
 app.use(authentication)
-app.get("/user/:UserId", Controller.getUserById)
+app.get("/user", Controller.getUserById)
 app.post("/files", upload.single("document"),Controller.addFile)
 app.get("/files", Controller.fetchAllFiles)
 // app.get("/files/:FileId", Controller.getFileById)

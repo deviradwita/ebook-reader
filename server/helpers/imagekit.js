@@ -3,8 +3,8 @@ const axios = require('axios');
 const ImageKit = require("imagekit");
 
 const imagekit = new ImageKit({
-    publicKey : "public_p7DBXb6npcvOBts4zXjpFwWmKY0=",
-    privateKey : "private_a4nK4a952RyzJ8Tbb/IZnCfO/NY=",
+    publicKey : process.env.IMAGEKIT_PUBLIC_KEY,
+    privateKey : process.env.IMAGEKIT_PRIVATE_KEY,
     urlEndpoint : "https://ik.imagekit.io/psmrvr1ry"
 });
 
